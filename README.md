@@ -18,3 +18,9 @@ $ node install
 ```console
 $ gulp
 ```
+
+#### 4.运行效果
+响应式
+![demo](./images/Responsive.gif)
+热更新
+![addMovie](./images/hot_load.gif)

@@ -21,7 +21,7 @@ gulp.task('js', function () {
     return gulp.src('js/*.js')
         .pipe(jshint()) //检测js
         .pipe(uglify()) //压缩js
-        .pipe(concat('app.js')) //合并js文件并命名为'app.js'
+        .pipe(concat('index.js')) //合并js文件并命名为'index.js'
         .pipe(gulp.dest('build/js')); //将合并后的js文件输出到build文件夹下      
 });
 

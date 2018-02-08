@@ -7,7 +7,7 @@ bin-release/
 node_modules/
 build/
 .vscode/
-
+.vscode
 # Other files and folders
 .settings/
 
