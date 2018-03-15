@@ -11,7 +11,7 @@ $ git clone https://github.com/zhalice2011/gulp-postcss.git
 
 #### 2.安装依赖
 ```console
-$ node install
+$ cd gulp-postcss && npm  install
 ```
 
 #### 3.项目运行
