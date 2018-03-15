@@ -107,11 +107,12 @@ header{
     padding-left: 50px;
     font-weight: bold;
     color:rgb(51,51,51);
-    background: #eee
+    background: #eee;
+    font-size: 50PX;   /*还有一种投机取巧的方法是px写成大写PX这样也不会进行转换*/ 
+
 }
-header.ignore{
+/* header.ignore{
     font-size: 19px
-}
+} */
 
 
-/* .ignore { margin: 10px; background-color: red; } */
