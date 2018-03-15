@@ -8,6 +8,7 @@ var imagemin = require('gulp-imagemin'); // 引入压缩图片插件
 var postcss = require('gulp-postcss'); //JavaScript 代码来转换CSS 中的样式
 var autoprefixer = require('autoprefixer'); //自动加上浏览器前缀
 var postcsswritesvg = require('postcss-write-svg') // 解决1px方案
+var plumber = require('gulp-plumber'); //gulp错误处理,watch模式下开发+vscode的自动保存简直就是灾难  for(... 还没写完就挂了
 
 // 目前出视觉设计稿，我们都是使用750px宽度的，从上面的原理来看，那么100vw = 750px，即1vw = 7.5px
 var pxtoviewport = require('postcss-px-to-viewport'); // 代码中写px编译后转化成vm
@@ -19,6 +20,7 @@ var opn = require('opn')
 // 1.处理js文件
 gulp.task('js', function () {
     return gulp.src('js/*.js')
+        .pipe(plumber())
         .pipe(jshint()) //检测js
         .pipe(uglify()) //压缩js
         .pipe(concat('index.js')) //合并js文件并命名为'index.js'
@@ -39,6 +41,7 @@ gulp.task('css', function () {
         })
     ];
     return gulp.src('css/*.css') // 指定css文件夹下的所有后缀为.css的文件
+        .pipe(plumber())
         .pipe(postcss([ autoprefixer() ]))  //自动加上浏览器前缀
         .pipe(postcss(processors))
         //.pipe(minify()) //使用minify模块进行css 压缩
@@ -48,6 +51,7 @@ gulp.task('css', function () {
 // 3.压缩img
 gulp.task('img', function () {
     gulp.src('images/*.{png,jpg,gif,ico}')
+        .pipe(plumber())
         .pipe(imagemin({
             progressive: true, //Boolean类型 默认:false 无损压缩图片
             optimizationLevel: 5, //number类型 默认:3 取值范围:0-7(优化等级)
@@ -60,6 +64,7 @@ gulp.task('img', function () {
 // 4.压缩html
 gulp.task('html', function () {
     gulp.src('*.html') //指定当前文件夹下的所有html文件
+        .pipe(plumber())
         .pipe(minhtml()) //进行压缩
         .pipe(gulp.dest('build')) //将压缩后的文件输出到build文件夹下
         .pipe(browserSync.stream()); //自动打开浏览器
