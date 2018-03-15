@@ -100,3 +100,18 @@ img {
 [w-187-246] {
     width: 187px
 }
+
+header{
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    font-weight: bold;
+    color:rgb(51,51,51);
+    background: #eee
+}
+header.ignore{
+    font-size: 19px
+}
+
+
+/* .ignore { margin: 10px; background-color: red; } */

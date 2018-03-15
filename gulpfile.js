@@ -35,7 +35,7 @@ gulp.task('css', function () {
             viewportHeight: 1334,
             unitPrecision: 5,
             viewportUnit: 'vw',
-            selectorBlackList: [],
+            selectorBlackList: ['.ignore'], //不需要转化为vm的类名 比如font size 
             minPixelValue: 1,
             mediaQuery: false
         })
